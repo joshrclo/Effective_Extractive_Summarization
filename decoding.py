@@ -12,7 +12,7 @@ from pytorch_pretrained_bert.tokenization import BertTokenizer
 
 from utils import PAD, UNK, START, END
 from model.extract import Summarizer
-from model.rl import ActorCritic
+#from model.rl import ActorCritic
 from data.batcher import conver2id, pad_batch_tensorize
 from data.data import CnnDmDataset
 
