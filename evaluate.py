@@ -11,7 +11,7 @@ from cytoolz import curry
 from pyrouge import Rouge155
 from pyrouge.utils import log
 
-_ROUGE_PATH = '/path/to/RELEASE-1.5.5'
+_ROUGE_PATH = 'evaluation/ROUGE-RELEASE-1.5.5'
 
 def eval_rouge(dec_dir, ref_dir):
     """ evaluate by original Perl implementation"""
