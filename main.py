@@ -282,6 +282,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='training of the different encoder/decoder/emb_type'
     )
+    parser.add_argument('--path_root', default='./', help='root of the model')
     parser.add_argument('--path', default='./result', help='root of the model')
     parser.add_argument('--mode', type=str, required=True, help='train/test')
 
@@ -336,7 +337,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     args.cuda = torch.cuda.is_available() and not args.no_cuda
     args = set_parameters(args)
-    args.path = './{}_{}_{}'.format(args.encoder, args.decoder, args.emb_type)
+    args.path = '{}{}_{}_{}'.format(args.path_root, args.encoder, args.decoder, args.emb_type)
     assert args.mode in ['train', 'test']
 
     if args.mode == 'train':
