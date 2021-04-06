@@ -225,6 +225,8 @@ def test(args, split):
              dataset, batch_size=args.batch, shuffle=False, num_workers=4,
              collate_fn=coll
     )
+    
+    print('dataset length', n_data)
 
     # decode and evaluate top 5 models
     os.mkdir(join(args.path, 'decode'))
@@ -340,6 +342,8 @@ if __name__ == '__main__':
     args.path = '{}{}_{}_{}'.format(args.path_root, args.encoder, args.decoder, args.emb_type)
     assert args.mode in ['train', 'test']
 
+    print('args.path', args.path)
+    
     if args.mode == 'train':
         train(args)
     else:
