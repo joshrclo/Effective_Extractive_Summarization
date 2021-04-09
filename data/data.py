@@ -17,8 +17,9 @@ class CnnDmDataset(Dataset):
         return self._n_data
 
     def __getitem__(self, i: int):
-        if not os.path.exists(join(self._data_path, '{}.json'.format(i))):
+        if i == 7343:
             print(i)
+        if not os.path.exists(join(self._data_path, '{}.json'.format(i))):
             return self.__getitem__(i-1) # Return previous item if the current doesnt exist
         with open(join(self._data_path, '{}.json'.format(i))) as f:
             js = json.loads(f.read())
