@@ -47,6 +47,10 @@ class ExtractDataset(CnnDmDataset):
 
     def __getitem__(self, i):
         js_data = super().__getitem__(i)
+        
+        if type(js_data) is tuple: # If this is a previous sample
+            return js_data
+        
         art_sents, extracts = js_data['article'], js_data['label']
         return art_sents, extracts
 
