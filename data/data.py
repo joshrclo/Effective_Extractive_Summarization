@@ -12,7 +12,7 @@ class CnnDmDataset(Dataset):
         assert split in ['train', 'val', 'test']
         self._data_path = join(path, split)
         self._n_data = _count_data(self._data_path)
-        self._prev_js
+        self._prev_js = None
 
     def __len__(self) -> int:
         return self._n_data
