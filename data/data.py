@@ -21,12 +21,6 @@ class CnnDmDataset(Dataset):
             return self.__getitem__(i-1) # Return previous item if the current doesnt exist
         with open(join(self._data_path, '{}.json'.format(i))) as f:
             js = json.load(f)
-        
-        if type(js) is tuple:
-            print('tuple json: {}'.format(i))
-            print(js)
-        else:
-            print('json: {}'.format(i))
         return js
 
 
