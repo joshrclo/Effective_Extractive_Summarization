@@ -12,15 +12,17 @@ class CnnDmDataset(Dataset):
         assert split in ['train', 'val', 'test']
         self._data_path = join(path, split)
         self._n_data = _count_data(self._data_path)
+        self._prev_js
 
     def __len__(self) -> int:
         return self._n_data
 
     def __getitem__(self, i: int):
         if not os.path.exists(join(self._data_path, '{}.json'.format(i))):
-            return self.__getitem__(i-1) # Return previous item if the current doesnt exist
+            return self._prev_js # Return previous item if the current doesnt exist
         with open(join(self._data_path, '{}.json'.format(i))) as f:
             js = json.load(f)
+            self._prev_js = js
         return js
 
 
