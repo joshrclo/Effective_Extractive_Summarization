@@ -211,10 +211,11 @@ class BasicTrainer(object):
             start = time()
             print('Start training')
             while True:
+                print('Train step:{}/{}'.format(self._step, self._ckpt_freq))
                 log_dict = self._pipeline.train_step()
                 self._step += 1
                 self.log(log_dict)
-                print('Train step:{}/{}'.format(self._step, self._ckpt_freq))
+                
                 if self._step % self._ckpt_freq == 0:
                     stop = self.checkpoint()
                     if stop:
