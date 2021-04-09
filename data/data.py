@@ -25,6 +25,8 @@ class CnnDmDataset(Dataset):
         if type(js) is tuple:
             print('tuple json: {}'.format(i))
             print(js)
+        else:
+            print('json: {}'.format(i))
         return js
 
 
