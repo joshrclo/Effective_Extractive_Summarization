@@ -169,13 +169,15 @@ class BasicTrainer(object):
                 '{}_'.format(key), value, self._step)
 
     def validate(self):
-        print()
+        print('validate')
         val_log = self._pipeline.validate()
+        print('pipeline validate')
         for key, value in val_log.items():
             self._logger.add_scalar(
                 'val_{}'.format(key),
                 value, self._step
             )
+        print('val_log')
         if 'reward' in val_log:
             val_metric = val_log['reward']
         else:
