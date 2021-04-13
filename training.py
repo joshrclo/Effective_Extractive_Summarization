@@ -90,16 +90,11 @@ class BasicPipeline(object):
         return loss_args
 
     def train_step(self):
-        
-        print('Training step')
-        
         # forward pass of model
         self._net.train()
         self._net._isTrain = True # for DeepLSTM
         fw_args, bw_args = next(self._batches)
         net_out = self._net(*fw_args)
-
-        print("Forward pass")
             
         # get logs and output for logging, backward
         log_dict = {}
@@ -113,8 +108,6 @@ class BasicPipeline(object):
             log_dict.update(self._grad_fn())
         self._opt.step()
         self._net.zero_grad()
-        
-        print("backward")
 
         return log_dict
 
