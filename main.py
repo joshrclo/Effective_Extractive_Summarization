@@ -37,7 +37,7 @@ from data.batcher import BucketedGenerater
 import warnings
 warnings.filterwarnings("ignore", category=Warning)
 
-BUCKET_SIZE = 6400
+BUCKET_SIZE = 64
 
 DATA_DIR = './CNNDM'
 
