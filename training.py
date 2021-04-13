@@ -184,6 +184,8 @@ class BasicTrainer(object):
         return val_metric
 
     def checkpoint(self):
+        print('checkpoint')
+        
         val_metric = self.validate()
         
         print('val_metric {}'.format(val_metric))
