@@ -34,6 +34,9 @@ from data.batcher import convert_batch_extract_ptr
 from data.batcher import batchify_fn_extract_ptr
 from data.batcher import BucketedGenerater
 
+import warnings
+warnings.filterwarnings("default", category=DeprecationWarning)
+
 BUCKET_SIZE = 6400
 
 DATA_DIR = './CNNDM'
