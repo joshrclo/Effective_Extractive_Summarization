@@ -185,6 +185,9 @@ class BasicTrainer(object):
 
     def checkpoint(self):
         val_metric = self.validate()
+        
+        print('val_metric {}'.format(val_metric))
+        
         self._pipeline.checkpoint(
             join(self._save_dir, 'ckpt'), self._step, val_metric)
         if isinstance(self._sched, ReduceLROnPlateau):
