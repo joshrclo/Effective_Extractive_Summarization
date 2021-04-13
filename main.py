@@ -35,7 +35,7 @@ from data.batcher import batchify_fn_extract_ptr
 from data.batcher import BucketedGenerater
 
 import warnings
-warnings.filterwarnings("once", category=DeprecationWarning)
+warnings.filterwarnings("ignore", category=Warning)
 
 BUCKET_SIZE = 6400
 
