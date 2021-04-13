@@ -231,7 +231,7 @@ class LSTMPointerNet(nn.Module):
             for i, l in enumerate(mem_sizes):
                 mask[i, :l].fill_(1)
             mask = mask.unsqueeze(-1)
-            attn_mem = attn_mem.masked_fill(mask == 0, -1e18)
+            attn_mem = attn_mem.masked_fill((mask == 0).bool(), -1e18)
         init_i = attn_mem.max(dim=1, keepdim=True)[0]
         return init_i
         
