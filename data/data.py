@@ -19,7 +19,10 @@ class CnnDmDataset(Dataset):
 
     def __getitem__(self, i: int):
         if not os.path.exists(join(self._data_path, '{}.json'.format(i))):
-            return self._prev_js # Return previous item if the current doesnt exist
+            if self._prev_js is not None:
+                return self._prev_js # Return previous item (if exists) if the current doesnt exist
+            else:
+                return self.__getitem__(i+1)
         with open(join(self._data_path, '{}.json'.format(i))) as f:
             js = json.load(f)
             self._prev_js = js
