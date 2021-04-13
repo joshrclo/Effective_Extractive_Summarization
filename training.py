@@ -96,6 +96,8 @@ class BasicPipeline(object):
         fw_args, bw_args = next(self._batches)
         net_out = self._net(*fw_args)
 
+        print("Forward pass\n")
+            
         # get logs and output for logging, backward
         log_dict = {}
         loss_args = self.get_loss_args(net_out, bw_args)
@@ -108,6 +110,8 @@ class BasicPipeline(object):
             log_dict.update(self._grad_fn())
         self._opt.step()
         self._net.zero_grad()
+        
+        print("backward\n")
 
         return log_dict
 
