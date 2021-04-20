@@ -249,7 +249,8 @@ def test(args, split):
         )['state_dict']
         extractor = Extractor(ext_dir, cur_ckpt, args.emb_type, cuda=args.cuda)
         save_path = join(args.path, 'decode/{}'.format(ckpts[i]))
-        os.mkdir(save_path)
+        if not os.path.exists(save_path):
+            os.mkdir(save_path)
 
         # decoding
         ext_list = []
