@@ -287,7 +287,7 @@ def test(args, split):
         print('Starting evaluating ROUGE !')
         dec_path = save_path
         ref_path = join(DATA_DIR, 'refs/{}'.format(split))
-        print("eval_rouge)
+        print("eval_rouge")
         ROUGE = eval_rouge(dec_path, ref_path)
         print(ROUGE)
         with open(join(args.path, 'ROUGE/{}.txt'.format(ckpts[i])), 'w') as f:
