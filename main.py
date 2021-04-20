@@ -236,8 +236,12 @@ def test(args, split):
     print('dataset length', n_data)
 
     # decode and evaluate top 5 models
-    os.mkdir(join(args.path, 'decode'))
-    os.mkdir(join(args.path, 'ROUGE'))
+    if not os.path.exists(join(args.path, 'decode')):
+        os.mkdir(join(args.path, 'decode'))
+        
+    if not os.path.exists(join(args.path, 'ROUGE')):
+        os.mkdir(join(args.path, 'ROUGE'))
+        
     for i in range(min(5, len(ckpts))):
         print('Start loading checkpoint {} !'.format(ckpts[i]))
         cur_ckpt = torch.load(
