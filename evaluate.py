@@ -18,6 +18,7 @@ def eval_rouge(dec_dir, ref_dir):
     """ evaluate by original Perl implementation"""
     # silence pyrouge logging
     assert _ROUGE_PATH is not None
+    assert os.path.exists(_ROUGE_PATH)
     print(_ROUGE_PATH)
     log.get_global_console_logger().setLevel(logging.WARNING)
     dec_pattern = '(\d+).dec'
