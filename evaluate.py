@@ -35,5 +35,6 @@ def eval_rouge(dec_dir, ref_dir):
                + ' -e {} '.format(join(_ROUGE_PATH, 'data'))
                + cmd
                + ' -a {}'.format(join(tmp_dir, 'settings.xml')))
+        print("cmd:{}".format(cmd))
         output = sp.check_output(cmd.split(' '), universal_newlines=True)
     return output
