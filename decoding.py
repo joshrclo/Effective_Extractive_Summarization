@@ -14,7 +14,7 @@ from utils import PAD, UNK, START, END
 from model.extract import Summarizer
 #from model.rl import ActorCritic
 from data.batcher import conver2id, pad_batch_tensorize
-from data.data import CnnDmDataset
+from data.data import CnnDmDataset, ImgDmDataset
 
 
 DATASET_DIR = './CNNDM'
