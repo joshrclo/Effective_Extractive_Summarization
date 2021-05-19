@@ -2,7 +2,7 @@
 import json
 import re
 import os
-from os.path import join
+from os.path import join, isfile
 
 from torch.utils.data import Dataset
 
