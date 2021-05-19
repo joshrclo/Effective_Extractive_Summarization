@@ -19,11 +19,10 @@ from data.data import CnnDmDataset
 
 DATASET_DIR = './CNNDM'
 
-class DecodeDataset(CnnDmDataset):
+class DecodeDataset(ImgDmDataset):
     """ get the article sentences only (for decoding use)"""
-    def __init__(self, split):
-        assert split in ['val', 'test']
-        super().__init__(split, DATASET_DIR)
+    def __init__(self, path):
+        super().__init__(path)
 
     def __getitem__(self, i):
         js_data = super().__getitem__(i)
