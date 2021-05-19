@@ -14,15 +14,15 @@ from utils import PAD, UNK, START, END
 from model.extract import Summarizer
 #from model.rl import ActorCritic
 from data.batcher import conver2id, pad_batch_tensorize
-from data.data import CnnDmDataset, ImgDmDataset
+from data.data import CnnDmDataset, ImgDmDataset, list_data
 
 
 DATASET_DIR = './CNNDM'
 
 class DecodeDataset(ImgDmDataset):
     """ get the article sentences only (for decoding use)"""
-    def __init__(self, path):
-        super().__init__(path)
+    def __init__(self, split):
+        super().__init__(DATASET_DIR)
 
     def __getitem__(self, i):
         js_data = super().__getitem__(i)
